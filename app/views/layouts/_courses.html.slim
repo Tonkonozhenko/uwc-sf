@@ -12,4 +12,4 @@ table.table
     tr
       td = translates[currency]
       - @courses.each do |_, v|
-        td = v[currency].join('/') rescue nil
+        td = v[currency].map{|c| number_with_precision(c, precision: 2)}.join('/') rescue nil

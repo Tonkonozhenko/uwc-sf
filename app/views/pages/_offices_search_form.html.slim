@@ -1,0 +1,15 @@
+= form_tag offices_search_path(:json), remote: true, class: 'form-horizontal', id: 'offices-search-from', method: :get do
+  .form-group
+    = label :office_search, :city, class: 'control-label col-md-2'
+    .col-md-4
+      = text_field :office_search, :city, class: 'form-control'
+
+  .form-group
+    = label :office_search, :street, class: 'control-label col-md-2'
+    .col-md-4
+      = text_field :office_search, :street, class: 'form-control'
+
+  .form-group
+    .col-md-4.col-md-offset-2
+      = submit_tag 'Search', class: 'btn btn-primary'
+
