@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+# Default gems
 gem 'rails', '4.1.7'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.3'
@@ -10,9 +11,11 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# Custom gems
 gem 'slim-rails'
 gem 'font-awesome-rails'
 gem 'bootstrap-sass'
+gem 'nokogiri'
 
 group :development do
   gem 'spring'

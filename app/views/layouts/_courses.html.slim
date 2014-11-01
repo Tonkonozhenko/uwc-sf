@@ -1,0 +1,15 @@
+h3 Courses
+
+- translates = t('courses')
+
+table.table
+  tr
+    th
+    - @courses.each do |k, _|
+      th = translates[k]
+  - currencies = %i[usd eur rur]
+  - currencies.each do |currency|
+    tr
+      td = translates[currency]
+      - @courses.each do |_, v|
+        td = v[currency].join('/') rescue nil

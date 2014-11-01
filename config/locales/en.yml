@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+  courses:
+    offices: Offices
+    cards: Cards
+    national: National bank
+    usd: USD
+    eur: EUR
+    rur: RUR
