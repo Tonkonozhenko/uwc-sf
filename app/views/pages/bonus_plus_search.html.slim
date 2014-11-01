@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-md-8
+      h3 Bonus plus search
+      = render 'pages/bonus_plus_search_form'
+      table#results.hidden.table
+      #no_results No results. Type something and search again
+    .col-md-4 = render 'layouts/courses'

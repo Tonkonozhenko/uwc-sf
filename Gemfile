@@ -17,6 +17,7 @@ gem 'font-awesome-rails'
 gem 'bootstrap-sass'
 gem 'nokogiri'
 gem 'active_model_serializers'
+gem 'select2-rails'
 
 group :development do
   gem 'spring'

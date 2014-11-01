@@ -17,7 +17,7 @@ html
           a.navbar-brand href="/" PB API
           ul.nav.navbar-nav
             li(class="#{'active' if current_page?(action: 'office_search')}") = link_to 'Office search', root_path
-            li = link_to 'Bonus+ search', root_path
+            li(class="#{'active' if current_page?(action: 'bonus_plus_search')}") = link_to 'Bonus+ search', bonus_plus_search_path
             li
 
     = yield

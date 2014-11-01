@@ -1,0 +1,26 @@
+= form_tag bonus_plus_search_path(:json), remote: true, class: 'form-horizontal', id: 'bonus-plus-search-from', method: :get do
+  .form-group
+    = label :bonus_plus_search, :state, class: 'control-label col-md-2'
+    .col-md-4
+      = select :bonus_plus_search, :state, ["Iвано-франкiвська", "Сумська", "Харкiвська", "Вiнницька", "Волинська", "Днiпропетровська", "Донецька", "Житомирська", "Закарпатська", "Запорiзька", "Кiровоградська", "Київська", "Кримська ар", "Луганська", "Львiвська", "Миколаївська", "Одеська", "Полтавська", "Рiвненська", "Тернопiльська", "Херсонська", "Хмельницька", "Черкаська", "Чернiвецька", "Чернiгiвська"], {}, class: 'form-control select2able'
+      span.help-block : i Please fill form in ukrainian
+
+  .form-group
+    = label :bonus_plus_search, :city, class: 'control-label col-md-2'
+    .col-md-4
+      = text_field :bonus_plus_search, :city, class: 'form-control'
+
+  .form-group
+    = label :bonus_plus_search, :street, class: 'control-label col-md-2'
+    .col-md-4
+      = text_field :bonus_plus_search, :street, class: 'form-control'
+
+  .form-group
+    = label :bonus_plus_search, :type, class: 'control-label col-md-2'
+    .col-md-4
+      = text_field :bonus_plus_search, :type, class: 'form-control'
+
+  .form-group
+    .col-md-4.col-md-offset-2
+      = submit_tag 'Search', class: 'btn btn-primary'
+  

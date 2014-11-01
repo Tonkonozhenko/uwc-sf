@@ -1,3 +1,3 @@
 class PbOfficeSerializer < ActiveModel::Serializer
-  attributes PbOffice::ATTRIBUTES
+  attributes *PbOffice::ATTRIBUTES
 end

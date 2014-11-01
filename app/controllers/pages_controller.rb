@@ -1,5 +1,3 @@
-require 'open-uri'
-
 class PagesController < ApplicationController
   respond_to :html, :json
 
@@ -40,10 +38,21 @@ class PagesController < ApplicationController
   end
 
   def bonus_plus_search
+    @bonus_plus_search = BonusPlusSearch.new(bonus_plus_search_params[:bonus_plus_search])
 
+    respond_to do |format|
+      format.html { render 'pages/bonus_plus_search' }
+      format.json do
+        render json: @bonus_plus_search.search
+      end
+    end
   end
 
   protected
+  def bonus_plus_search_params
+    params.permit(bonus_plus_search: [:city, :state, :street, :type])
+  end
+
   def office_search_params
     params.permit(office_search: [:city, :street])
   end

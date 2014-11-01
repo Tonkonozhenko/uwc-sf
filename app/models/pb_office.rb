@@ -1,4 +1,6 @@
 class PbOffice
+  include ActiveModel::Serialization
+
   ATTRIBUTES = %i[city address name phone email]
   attr_accessor *ATTRIBUTES
 
