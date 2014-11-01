@@ -1,4 +1,5 @@
 = form_tag office_search_path(:json), remote: true, class: 'form-horizontal', id: 'office-search-from', method: :get do
+  = hidden_field_tag :page, params[:page].presence || 1
   .form-group
     = label :office_search, :city, class: 'control-label col-md-2'
     .col-md-4

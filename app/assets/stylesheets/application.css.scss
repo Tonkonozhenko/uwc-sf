@@ -16,9 +16,15 @@
  *= require_tree .
  *= require_self
  */
-
 @import "bootstrap";
 
 body {
   padding-top: 50px;
+}
+
+.links {
+  text-align: center;
+  a {
+    cursor: pointer;
+  }
 }

@@ -17,6 +17,7 @@ gem 'bootstrap-sass'
 gem 'nokogiri'
 gem 'active_model_serializers'
 gem 'select2-rails'
+gem 'kaminari'
 
 group :development do
   gem 'spring'

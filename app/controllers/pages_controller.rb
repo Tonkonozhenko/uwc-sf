@@ -32,7 +32,7 @@ class PagesController < ApplicationController
     respond_to do |format|
       format.html { render 'pages/office_search' }
       format.json do
-        render json: @office_search.search
+        render json: Kaminari.paginate_array(@office_search.search).page(params[:page]).per(25)
       end
     end
   end
@@ -43,7 +43,7 @@ class PagesController < ApplicationController
     respond_to do |format|
       format.html { render 'pages/bonus_plus_search' }
       format.json do
-        render json: @bonus_plus_search.search
+        render json: Kaminari.paginate_array(@bonus_plus_search.search).page(params[:page]).per(25)
       end
     end
   end

@@ -2,25 +2,25 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
-  select = $('#bonus_plus_search_type')
   $('.select2able').select2({
     width: '100%'
   })
-#  $.ajax
-#    url: '/types.json'
-#    success: (data) ->
-#      debugger
-#      data.forEach (d) ->
-#        select.append($('<option>', {
-#          value: d
-#        }).html(d))
-
 
   office_search_form = $('#office-search-from')
   no_results = $('#no_results')
   table = $('#results')
+  next = $('#next')
+  previous = $('#previous')
 
   office_search_form.on 'ajax:success', (event, data) ->
+    current = parseInt(office_search_form.find('[name=page]').val())
+    console.log current
+    if current == 1
+      previous.addClass('hidden')
+    else
+      previous.removeClass('hidden')
+    next.removeClass('hidden')
+
     table.html('
           <tr>
             <th>City</th>
@@ -49,6 +49,13 @@ $(document).ready ->
 
   bonus_plus_search_form = $('#bonus-plus-search-from')
   bonus_plus_search_form.on 'ajax:success', (event, data) ->
+    current = parseInt(bonus_plus_search_form.find('[name=page]').val())
+    if current == 1
+      previous.addClass('hidden')
+    else
+      previous.removeClass('hidden')
+    next.removeClass('hidden')
+
     table.html('
           <tr>
             <th>City</th>
@@ -72,3 +79,19 @@ $(document).ready ->
     else
       table.removeClass('hidden')
       no_results.addClass('hidden')
+
+  next.on 'click', (e) ->
+    form = $ $(@).data('target')
+    page = form.find('[name=page]')
+    current = parseInt page.val()
+    page.val(current + 1)
+    form.submit()
+    e.preventDefault()
+
+  previous.on 'click', (e) ->
+    form = $ $(@).data('target')
+    page = form.find('[name=page]')
+    current = parseInt page.val()
+    page.val(current - 1)
+    form.submit()
+    e.preventDefault()
