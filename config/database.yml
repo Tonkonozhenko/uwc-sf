@@ -1,0 +1,19 @@
+defaults: &defaults
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  host: localhost
+  username: postgres
+  password: postgres
+
+development:
+  <<: *defaults
+  database: uwc_sf_development
+
+test:
+  <<: *defaults
+  database: uwc_sf_test
+
+production:
+  <<: *defaults
+  database: uwc_sf_production
