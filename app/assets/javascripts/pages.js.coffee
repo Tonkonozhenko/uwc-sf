@@ -12,14 +12,32 @@ $(document).ready ->
   next = $('#next')
   previous = $('#previous')
 
-  office_search_form.on 'ajax:success', (event, data) ->
-    current = parseInt(office_search_form.find('[name=page]').val())
-    console.log current
+  links = (form) ->
+    current = parseInt(form.find('[name=page]').val())
     if current == 1
       previous.addClass('hidden')
     else
       previous.removeClass('hidden')
     next.removeClass('hidden')
+
+  next.on 'click', (e) ->
+    form = $ $(@).data('target')
+    page = form.find('[name=page]')
+    current = parseInt page.val()
+    page.val(current + 1)
+    form.submit()
+    e.preventDefault()
+
+  previous.on 'click', (e) ->
+    form = $ $(@).data('target')
+    page = form.find('[name=page]')
+    current = parseInt page.val()
+    page.val(current - 1)
+    form.submit()
+    e.preventDefault()
+
+  office_search_form.on 'ajax:success', (event, data) ->
+    links(office_search_form)
 
     table.html('
           <tr>
@@ -49,12 +67,7 @@ $(document).ready ->
 
   bonus_plus_search_form = $('#bonus-plus-search-from')
   bonus_plus_search_form.on 'ajax:success', (event, data) ->
-    current = parseInt(bonus_plus_search_form.find('[name=page]').val())
-    if current == 1
-      previous.addClass('hidden')
-    else
-      previous.removeClass('hidden')
-    next.removeClass('hidden')
+    links(bonus_plus_search_form)
 
     table.html('
           <tr>
@@ -79,19 +92,3 @@ $(document).ready ->
     else
       table.removeClass('hidden')
       no_results.addClass('hidden')
-
-  next.on 'click', (e) ->
-    form = $ $(@).data('target')
-    page = form.find('[name=page]')
-    current = parseInt page.val()
-    page.val(current + 1)
-    form.submit()
-    e.preventDefault()
-
-  previous.on 'click', (e) ->
-    form = $ $(@).data('target')
-    page = form.find('[name=page]')
-    current = parseInt page.val()
-    page.val(current - 1)
-    form.submit()
-    e.preventDefault()
