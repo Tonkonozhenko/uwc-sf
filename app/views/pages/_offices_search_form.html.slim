@@ -1,8 +1,8 @@
-= form_tag offices_search_path(:json), remote: true, class: 'form-horizontal', id: 'offices-search-from', method: :get do
+= form_tag office_search_path(:json), remote: true, class: 'form-horizontal', id: 'office-search-from', method: :get do
   .form-group
     = label :office_search, :city, class: 'control-label col-md-2'
     .col-md-4
-      = text_field :office_search, :city, class: 'form-control'
+      = text_field :office_search, :city, class: 'form-control', value: 'Киев'
 
   .form-group
     = label :office_search, :street, class: 'control-label col-md-2'

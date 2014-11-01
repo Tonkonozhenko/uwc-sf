@@ -16,7 +16,7 @@ html
             span.icon-bar
           a.navbar-brand href="/" PB API
           ul.nav.navbar-nav
-            li = link_to 'Offices search', root_path
+            li(class="#{'active' if current_page?(action: 'office_search')}") = link_to 'Office search', root_path
             li = link_to 'Bonus+ search', root_path
             li
 

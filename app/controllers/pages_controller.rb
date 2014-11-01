@@ -3,7 +3,7 @@ require 'open-uri'
 class PagesController < ApplicationController
   respond_to :html, :json
 
-  before_filter only: [:offices_search, :bonus_plus_search] do
+  before_filter only: [:office_search, :bonus_plus_search] do
     urls = {
         offices: 'https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5',
         cards: 'https://api.privatbank.ua/p24api/pubinfo?cardExchange',
@@ -28,13 +28,13 @@ class PagesController < ApplicationController
     end
   end
 
-  def offices_search
+  def office_search
     @office_search = OfficeSearch.new(office_search_params[:office_search])
 
     respond_to do |format|
-      format.html { render 'pages/offices_search' }
+      format.html { render 'pages/office_search' }
       format.json do
-        doc = Nokogiri::HTML(open(URI.escape("https://privat24.privatbank.ua/p24/accountorder?oper=prp&PUREXML&pboffice&city=#{@office_search.city}&address=#{@office_search.address}")))
+        render json: @office_search.search
       end
     end
   end
@@ -45,6 +45,6 @@ class PagesController < ApplicationController
 
   protected
   def office_search_params
-    params.permit(office_search: [:city, :address])
+    params.permit(office_search: [:city, :street])
   end
 end
