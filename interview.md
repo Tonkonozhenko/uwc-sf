@@ -1,7 +1,22 @@
 Easy:
 =========================================================================
+* What's the difference between `Class` and `Module`
+  
+  **Answer**
+  
+  TODO
 
-* `1` What paths (HTTP verb and URL) will be defined by the following snippet in config/routes.rb? How to write the same with less code (4 lines needed)?
+=========================================================================
+
+* What's the difference between `String` and `Symbol`
+
+  **Answer**
+  
+  TODO
+
+=========================================================================
+
+* What paths (HTTP verb and URL) will be defined by the following snippet in config/routes.rb? How to write the same with less code (4 lines needed)?
 
   ```ruby
   resources :posts do
@@ -40,7 +55,7 @@ Easy:
 
 =========================================================================
 
-* `2` What is the difference between form_for and form_tag?
+* What is the difference between form_for and form_tag?
 
   **Answer**
   
@@ -62,7 +77,7 @@ Easy:
 
   =========================================================================
 
-* `3` Define a Person model so that any Person can be assigned as the parent of another Person (as demonstrated in the Rails console below)? What columns would you need to define in the migration creating the table for Person?
+* Define a Person model so that any Person can be assigned as the parent of another Person (as demonstrated in the Rails console below)? What columns would you need to define in the migration creating the table for Person?
 
   ```
   irb(main):001:0> john = Person.create(name: "John")
@@ -105,8 +120,37 @@ irb(main):007:0> sally.grandchildren.map(&:name)
 
 Medium:
 =========================================================================
+* How does this code work?
+  ```ruby
+  [1, 2, 3].map(&:to_s)
+  ```
+  
+  **Answer**
+  
+  TODO
+  
+=========================================================================
 
-* `1` What is polymorphic association in ActiveRecord?
+* How can you call method?
+  
+  **Answer**
+  
+  * `send(:m)`
+  * `method(:m).call`
+  
+=========================================================================
+* SQL Basics
+  * SELECT/UPDATE/DELETE/INSERT
+  * GROUP BY/HAVING
+  * JOIN
+  * TRANSACTION
+  * What have you used from SQL?
+  * Have you written pure SQL?
+  * Arel?
+
+=========================================================================
+
+* What is polymorphic association in ActiveRecord?
 
   **Answer**
 
@@ -140,8 +184,23 @@ Medium:
   In order to protect against CSRF attacks, you can add protect_from_forgery to your ApplicationController. This will then cause Rails to require a CSRF token to be present before accepting any POST, PUT, or DELETE requests. The CSRF token is included as a hidden field in every form created using Rails’ form builders. It is also included as a header in GET requests so that other, non-form-based mechanisms for sending a POST can use it as well. Attackers are prevented from stealing the CSRF token by browsers’ “same origin” policy.
 
 =========================================================================
+* How does Ruby find method? What is eigen class?
 
-* `3` What is n+1 queries problem?
+=========================================================================
+
+* What is Rack and Middleware?
+
+  **Answer**
+  
+  Rack provides a minimal interface between webservers that support Ruby and Ruby frameworks.
+  
+  Rack middleware is more than "a way to filter a request and response" - it's an implementation of the pipeline design pattern for web servers using Rack.
+
+  It very cleanly separates out the different stages of processing a request - separation of concerns being a key goal of all well designed software products.
+
+=========================================================================
+
+* What is `n+1` queries problem?
 
   **Answer**
 
@@ -164,8 +223,6 @@ Medium:
   posts = User.find(id).post.includes(comments: [:author])
   ```
 
-=========================================================================
-=========================================================================
 
 Hard
 =========================================================================
