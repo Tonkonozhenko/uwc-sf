@@ -171,7 +171,7 @@ Hard
 =========================================================================
 
 * `1` How rails knows which migrations were done and which were not? What is schema.rb file and what it stands for?
-* 
+
   **Answer**
 
   There is a special table in database (schema_migrations), were rails stores migration ids (if you are using rails generators timestamps will act as ids) for migrations which were done. That ids are used in filenames where migration code is saved, so rails always can check if migration from certain file was done.
